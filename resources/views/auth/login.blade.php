@@ -1,6 +1,16 @@
 @extends('layouts.app')
 
 @section('content')
+{{--    <login--}}
+{{--        csrf-token="{{@csrf_token()}}"--}}
+{{--        login-route="{{route('login')}}"--}}
+{{--        register-route="{{route('register')}}"--}}
+{{--        old-email="{{old('email')}}"--}}
+{{--        remember="{{old('remember')}}"--}}
+{{--        forgot-password-route="{{route('password.request')}}">--}}
+
+{{--    </login>--}}
+
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
