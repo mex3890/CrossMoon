@@ -11299,6 +11299,20 @@ main {
   min-height: calc(100vh - 126px);
 }
 
+nav .container #navbarSupportedContent ul {
+  margin-left: 30px;
+}
+nav .container #navbarSupportedContent ul li {
+  margin: auto 10px;
+}
+nav .container #navbarSupportedContent ul li:hover a {
+  font-size: 1rem;
+  font-weight: 700;
+}
+nav .container #navbarSupportedContent ul li a {
+  text-decoration: none;
+}
+
 footer {
   height: 50px;
   --bs-bg-opacity: 1;

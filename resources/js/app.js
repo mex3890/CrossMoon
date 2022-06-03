@@ -23,6 +23,7 @@ Vue.component('example-component', require('./components/ExampleComponent.vue').
 //Vue.component('login', require('./components/auth/Login').default);
 Vue.component('app-header', require('./components/layouts/Header').default);
 Vue.component('app-footer', require('./components/layouts/Footer').default);
+Vue.component('app-table', require('./components/assignment/Table').default);
 /**
  * Next, we will create a fresh Vue application instance and attach it to
  * the page. Then, you may begin adding components to this application

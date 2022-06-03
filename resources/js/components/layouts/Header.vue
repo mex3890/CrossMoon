@@ -10,24 +10,27 @@
 
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <!-- Left Side Of Navbar -->
-                <ul class="navbar-nav me-auto">
-
+                <ul v-if="parseInt(isAuthenticated)" class="navbar-nav me-auto nav-links">
+                    <li><a :href="urlHome">Home</a></li>
+                    <li><a href="#">Posts</a></li>
+                    <li><a href="#">About Us</a></li>
+                    <li><a :href="urlAssignments">Assignments</a></li>
                 </ul>
 
                 <!-- Right Side Of Navbar -->
                 <ul class="navbar-nav ms-auto">
                     <!-- Authentication Links -->
 
-                    <li v-if="isAuthenticated" class="nav-item">
+                    <li v-if="!parseInt(isAuthenticated)" class="nav-item">
                         <a class="nav-link" :href="urlLogin">Login</a>
                     </li>
 
-                    <li v-if="isAuthenticated" class="nav-item">
+                    <li v-if="!parseInt(isAuthenticated)" class="nav-item">
                         <a class="nav-link" :href="urlRegister">Register</a>
                     </li>
 
-                    <li v-if="!isAuthenticated" class="nav-item dropdown">
-                        <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                    <li v-if="parseInt(isAuthenticated)" class="nav-item dropdown">
+                        <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             {{userName}}
                         </a>
 
@@ -53,6 +56,7 @@
         props: [
             'urlWelcome',
             'urlHome',
+            'urlAssignments',
             'isAuthenticated',
             'urlLogin',
             'urlRegister',

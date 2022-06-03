@@ -1,0 +1,8 @@
+@import url(https://fonts.googleapis.com/css?family=Nunito);
+#table {
+  display: flex;
+  align-items: center;
+}
+#table table {
+  margin: 50px;
+}

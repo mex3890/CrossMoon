@@ -2,27 +2,39 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Resources\AssignmentResource;
 use App\Models\Assignment;
+use Illuminate\Contracts\Foundation\Application;
+use Illuminate\Contracts\View\Factory;
+use Illuminate\Contracts\View\View;
 use Illuminate\Http\Request;
+use Illuminate\Http\Response;
 
 class AssignmentController extends Controller
 {
+    public function __construct()
+    {
+        //$this->middleware('auth');
+    }
+
     /**
      * Display a listing of the resource.
      *
-     * @return \Illuminate\Http\Response
+     * @return Application|Factory|View
      */
-    public function index()
+    public function index(): View|Factory|Application
     {
-        //
+        $assignments = Assignment::where('user_id', auth()->user()->id)->with('category', 'stat')->get();
+        return view('assignment.index', [
+            'assignments' => AssignmentResource::collection($assignments)->toJson()]);
     }
 
     /**
      * Show the form for creating a new resource.
      *
-     * @return \Illuminate\Http\Response
+     * @return Response
      */
-    public function create()
+    public function create(): Response
     {
         //
     }
@@ -30,10 +42,10 @@ class AssignmentController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
+     * @param Request $request
+     * @return Response
      */
-    public function store(Request $request)
+    public function store(Request $request): Response
     {
         //
     }
@@ -41,10 +53,10 @@ class AssignmentController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Assignment  $assignment
-     * @return \Illuminate\Http\Response
+     * @param Assignment $assignment
+     * @return Response
      */
-    public function show(Assignment $assignment)
+    public function show(Assignment $assignment): Response
     {
         //
     }
@@ -52,10 +64,10 @@ class AssignmentController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Assignment  $assignment
-     * @return \Illuminate\Http\Response
+     * @param Assignment $assignment
+     * @return Response
      */
-    public function edit(Assignment $assignment)
+    public function edit(Assignment $assignment): Response
     {
         //
     }
@@ -63,11 +75,11 @@ class AssignmentController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Assignment  $assignment
-     * @return \Illuminate\Http\Response
+     * @param Request $request
+     * @param Assignment $assignment
+     * @return Response
      */
-    public function update(Request $request, Assignment $assignment)
+    public function update(Request $request, Assignment $assignment): Response
     {
         //
     }
@@ -75,10 +87,10 @@ class AssignmentController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Assignment  $assignment
-     * @return \Illuminate\Http\Response
+     * @param Assignment $assignment
+     * @return Response
      */
-    public function destroy(Assignment $assignment)
+    public function destroy(Assignment $assignment): Response
     {
         //
     }

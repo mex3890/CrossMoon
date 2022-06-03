@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AssignmentController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -17,9 +18,3 @@ use Illuminate\Support\Facades\Route;
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
-
-Route::apiResource('assignment', 'App\Http\Controllers\AssignmentController');
-Route::apiResource('category', 'App\Http\Controllers\CategoryController');
-Route::apiResource('role', 'App\Http\Controllers\RoleController');
-Route::apiResource('stat', 'App\Http\Controllers\StatController');
-Route::apiResource('user', 'App\Http\Controllers\UserController');

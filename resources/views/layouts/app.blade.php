@@ -18,6 +18,7 @@
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/table.css') }}" rel="stylesheet">
 
     <!-- Icons -->
     <link href='https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css' rel='stylesheet'>
@@ -27,6 +28,7 @@
         <app-header
         url-welcome="{{route('welcome')}}"
         url-home="{{route('home')}}"
+        url-assignments="{{route('assignment.index')}}"
         is-authenticated="{{auth()->check() ? : 0}}"
         url-login="{{route('login')}}"
         url-register="{{route('register')}}"

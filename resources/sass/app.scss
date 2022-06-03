@@ -20,6 +20,33 @@ main {
     min-height: calc(100vh - 126px);
 }
 
+nav {
+    & .container {
+
+        #navbarSupportedContent {
+
+            & ul {
+                margin-left: 30px;
+
+                & li {
+                    margin: auto 10px;
+
+                    &:hover{
+
+                        & a{
+                            font-size: 1rem;
+                            font-weight: 700;
+                        }
+                    }
+
+                    & a {
+                        text-decoration: none;
+                    }
+                }
+            }
+        }
+    }
+}
 footer {
     height: 50px;
     --bs-bg-opacity: 1;
