@@ -1,26 +1,29 @@
 <template>
     <footer>
-        <div class="footer">
-            <p><span>Copyright</span> ©CrossMoon <span>{{year}}</span></p>
-            <div class="social-medias">
-                <ul>
-                    <li>
-                        <a href="#">
-                            <i class='bx bxl-instagram-alt'></i>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#">
-                            <i class='bx bxl-facebook-circle' ></i>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#">
-                            <i class='bx bxl-twitter' ></i>
-                        </a>
-                    </li>
-                </ul>
-            </div>
+        <div class="title">
+            <h1>Cross Moon</h1>
+        </div>
+
+        <div class="footer-links">
+            <ul>
+                <div id="menu">
+                    <li><a href = "#">Home</a></li>
+                    <li><a href = "#">Posts</a></li>
+                    <li><a href = "#">About Us</a></li>
+                </div>
+                <li>
+                    <div id="social-midia">
+                        <span>Social Midias</span>
+                        <i class='bx bxl-instagram' undefined ></i>
+                        <i class='bx bxl-facebook'></i>
+                        <i class='bx bxl-twitter'></i>
+                    </div>
+                </li>
+            </ul>
+        </div>
+
+        <div class="copyright"> 
+            <p> Copyright ©CrossMoon </p>
         </div>
     </footer>
 </template>

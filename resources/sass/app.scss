@@ -17,7 +17,7 @@ html, body {
 }
 
 main {
-    min-height: calc(100vh - 126px);
+    min-height: calc(100vh - 75px);
 }
 
 nav {
@@ -47,45 +47,80 @@ nav {
         }
     }
 }
-footer {
-    height: 50px;
-    --bs-bg-opacity: 1;
-    background-color: rgba(var(--bs-white-rgb), var(--bs-bg-opacity));
-    box-shadow: 0 0.125rem 1.25rem rgb(0 0 0 / 8%);
 
-    & .footer{
+footer {
+    background-color: rgb(59, 59, 59);
+    display: flex;
+    flex-direction: column;
+
+    & .title {
+        border-bottom: 2px solid rgba(145, 133, 133, 0.823);
+        margin: auto 30px;
+
+        & h1 {
+            padding: 0;
+            color: #ffffff;
+            margin: 12px 0;
+        }
+    }
+
+    & .footer-links {
+        margin: 40px 0;
+        
+        & ul{
+            display: flex;
+            justify-content: space-between;
+            list-style: none;
+            width: 100%;
+            padding-right: 2rem;
+            margin: 0 auto;
+
+            & #menu{
+                display: flex;
+            }
+
+            & li{
+                margin: auto 30px;
+            
+            & a{
+                color: #ffffff;
+                display: flex;
+
+            }
+
+                & #social-midia{
+                    color: #ffffff;
+                    display: flex;
+                    align-items: center;
+                    
+                    & span {
+                        margin-right: 5px;
+                    }
+
+                    & i {
+                        font-size: 1.5rem;
+                    }
+                }
+            }
+        }
+
+    }
+
+    & .copyright {
         display: flex;
-        height: 100%;
-        justify-content: space-between;
-        align-items: center;
+        justify-content: center;
+        border-top: 2px solid rgba(145, 133, 133, 0.823); 
         margin: auto 30px;
 
         & p {
-            padding: 0;
-            margin: 0;
-            color: #0d6efd;
-
-            & span {
-                color: #000000;
-            }
-        }
-
-        & .social-medias {
-           & ul {
-                list-style: none;
-                display: flex;
-                padding: 0;
-                margin: 0;
-
-               & li {
-                   & i {
-                       font-size: 2rem;
-                   }
-               }
-            }
+            color: #fff;
         }
     }
+
 }
+
+
+       
 
 .navbar {
     & .container {
