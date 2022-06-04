@@ -4,12 +4,16 @@
 // Variables
 @import 'variables';
 
-
-#table {
-    display: flex;
-    align-items: center;
+#content-table {
+    margin: 50px;
+    padding: 20px;
+    background-color: #ffffff;
+    border: 1px solid rgba(192, 192, 192, 0.3);
+    border-radius: 5px;
+    box-shadow: 0 0 10px #ccc,
+                5px 5px 10px #ccc;
 
     & table {
-        margin: 50px;
+        margin: 0;
     }
 }

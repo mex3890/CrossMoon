@@ -9,6 +9,7 @@ use Illuminate\Contracts\View\Factory;
 use Illuminate\Contracts\View\View;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
+use Illuminate\Support\Arr;
 
 class AssignmentController extends Controller
 {
@@ -53,12 +54,14 @@ class AssignmentController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param Assignment $assignment
-     * @return Response
+     * @param string $id
+     * @return Application|Factory|View
      */
-    public function show(Assignment $assignment): Response
+    public function show(string $id): Application|Factory|View
     {
-        //
+        $assignment = Assignment::where('id', $id)->get();
+        $assignment = $assignment->load(['category', 'stat']);
+        return view('assignment.show', ['assignment' => AssignmentResource::collection($assignment)->toJson()]);
     }
 
     /**
