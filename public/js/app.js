@@ -28597,21 +28597,30 @@ var render = function () {
           },
           [
             parseInt(_vm.isAuthenticated)
-              ? _c("ul", { staticClass: "navbar-nav me-auto nav-links" }, [
-                  _c("li", [
-                    _c("a", { attrs: { href: _vm.urlHome } }, [_vm._v("Home")]),
-                  ]),
-                  _vm._v(" "),
-                  _vm._m(1),
-                  _vm._v(" "),
-                  _vm._m(2),
-                  _vm._v(" "),
-                  _c("li", [
-                    _c("a", { attrs: { href: _vm.urlAssignments } }, [
-                      _vm._v("Assignments"),
+              ? _c(
+                  "ul",
+                  {
+                    staticClass: "navbar-nav me-auto nav-links",
+                    attrs: { id: "ul-links" },
+                  },
+                  [
+                    _c("li", [
+                      _c("a", { attrs: { href: _vm.urlHome } }, [
+                        _vm._v("Home"),
+                      ]),
                     ]),
-                  ]),
-                ])
+                    _vm._v(" "),
+                    _vm._m(1),
+                    _vm._v(" "),
+                    _vm._m(2),
+                    _vm._v(" "),
+                    _c("li", [
+                      _c("a", { attrs: { href: _vm.urlAssignments } }, [
+                        _vm._v("Assignments"),
+                      ]),
+                    ]),
+                  ]
+                )
               : _vm._e(),
             _vm._v(" "),
             _c("ul", { staticClass: "navbar-nav ms-auto" }, [

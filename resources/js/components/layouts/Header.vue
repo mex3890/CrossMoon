@@ -10,7 +10,7 @@
 
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <!-- Left Side Of Navbar -->
-                <ul v-if="parseInt(isAuthenticated)" class="navbar-nav me-auto nav-links">
+                <ul id="ul-links" v-if="parseInt(isAuthenticated)" class="navbar-nav me-auto nav-links">
                     <li><a :href="urlHome">Home</a></li>
                     <li><a href="#">Posts</a></li>
                     <li><a href="#">About Us</a></li>

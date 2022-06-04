@@ -11299,17 +11299,17 @@ main {
   min-height: calc(100vh - 126px);
 }
 
-nav .container #navbarSupportedContent ul {
+nav .container #navbarSupportedContent #ul-links {
   margin-left: 30px;
 }
-nav .container #navbarSupportedContent ul li {
+nav .container #navbarSupportedContent #ul-links li {
   margin: auto 10px;
 }
-nav .container #navbarSupportedContent ul li:hover a {
+nav .container #navbarSupportedContent #ul-links li:hover a {
   font-size: 1rem;
   font-weight: 700;
 }
-nav .container #navbarSupportedContent ul li a {
+nav .container #navbarSupportedContent #ul-links li a {
   text-decoration: none;
 }
 
