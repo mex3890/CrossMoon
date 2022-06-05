@@ -15,5 +15,25 @@
 
     & table {
         margin: 0;
+
+        & tbody {
+            & tr {
+                & td {
+
+                    & .action {
+                        display: flex;
+                    }
+
+                    & a {
+                        display: flex;
+                        justify-content: center;
+                        text-decoration: none;
+                        & i {
+                        font-size: 1.5rem;
+                        }
+                    }
+                }
+            }
+        }
     }
 }
