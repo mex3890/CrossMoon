@@ -18,8 +18,10 @@
     & .header-table {
         display: flex;
         justify-content: space-between;
+        align-items: center;
+        border-bottom: 1px solid #a0aec0;
 
-        & h3 {
+        & h4 {
             color: #464553;
         }
 

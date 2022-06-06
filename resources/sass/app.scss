@@ -17,18 +17,32 @@ html, body {
 }
 
 main {
-    min-height: calc(100vh - 75px);
+    min-height: calc(100vh - 55px);
 }
 
 nav {
     background-color: #464553;
+    height: 60px;
 
-    & .container {
+    & .header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        width: 100%;
+        margin: auto 10vw;
 
+        & .navbar-logo {
+            & img {
+                height: 40px;
+            }
+        }
+
+        & .navbar-collapse {
+            flex-grow: unset;
+        }
         #navbarSupportedContent {
 
             & #ul-links {
-                margin-left: 30%;
 
                 & li {
                     margin: auto 10px;
@@ -47,18 +61,26 @@ nav {
                     }
                 }
             }
+        }
 
-            & #ul-auth {
+        #ul-auth {
 
-                & .nav-item {
-                     & a {
-                         color: #ffffff;
-                     }
+            & .nav-item {
 
-                    & .dropdown-menu {
-                        & a {
-                            color: #000000;
-                        }
+                & a {
+                    color: #ffffff;
+                }
+                & #navbarDropdown {
+                    color: #ffffff;
+                    & i {
+                        font-size: 1.2rem;
+                        color: #ffffff;
+                    }
+                }
+
+                & .dropdown-menu {
+                    & a {
+                        color: #000000;
                     }
                 }
             }
@@ -135,16 +157,6 @@ footer {
         }
     }
 
-}
-
-.navbar {
-    & .container {
-        & .navbar-brand {
-            & img {
-                height: 50px;
-            }
-        }
-    }
 }
 
 .table > :not(caption) > * > * {
