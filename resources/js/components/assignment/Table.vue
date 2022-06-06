@@ -2,7 +2,7 @@
     <div id="content-table">
         <div class="header-table">
             <h4>Assignments</h4>
-            <a href="#" class="btn btn-primary assignment-button">Create Assignment</a>
+            <a :href="urlCreate" class="btn btn-primary assignment-button">Create Assignment</a>
         </div>
         <table class="table table-striped">
             <thead>
@@ -37,7 +37,7 @@
 
 <script>
 export default {
-    props: ['userAssignments', 'urlAssignments', 'csrfToken'],
+    props: ['userAssignments', 'urlAssignments', 'urlCreate', 'csrfToken'],
     data() {
         return {}
     }

@@ -6,6 +6,7 @@
           <app-table
             :user-assignments="{{$assignments}}"
             url-assignments="{{route('assignment.index')}}"
+            url-create="{{route('assignment.create')}}"
             csrf-token="{{csrf_token()}}">
           </app-table>
       </div>
