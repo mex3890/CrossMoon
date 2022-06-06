@@ -1,5 +1,5 @@
 <template>
-    <nav class="navbar navbar-expand-md navbar-light shadow-sm">
+    <nav id="nav" class="navbar navbar-expand-md navbar-light shadow-sm">
         <div class="header">
             <a class="navbar-logo" :href="urlWelcome">
                 <img :src="srcLogo" alt="@crossmoon">
