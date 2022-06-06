@@ -18,6 +18,7 @@ html, body {
 
 main {
     min-height: calc(100vh - 55px);
+    background: #f8fafc;
 }
 
 #nav {
@@ -60,6 +61,7 @@ main {
                     overflow: hidden;
                     transition: 1s;
                     z-index: 0;
+                    padding: 0 10px;
 
                     &:hover::after {
                         content: '';
@@ -96,7 +98,7 @@ main {
                     color: #fff;
                     position: relative;
                     z-index: 1;
-                    padding: 0 10px;
+                    padding: 0 2px;
                 }
             }
         }
@@ -215,3 +217,7 @@ thead, th {
     border-top: 2px solid #dee2e6;
 }
 
+
+.form {
+    margin: 50px 200px;
+}

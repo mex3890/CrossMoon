@@ -33,11 +33,11 @@ class AssignmentController extends Controller
     /**
      * Show the form for creating a new resource.
      *
-     * @return Response
+     * @return Application|Factory|View
      */
-    public function create(): Response
+    public function create(): Application|Factory|View
     {
-        //
+        return view('assignment.create');
     }
 
     /**
