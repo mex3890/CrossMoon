@@ -5,6 +5,8 @@
 @import 'variables';
 
 #content-table {
+    display: flex;
+    flex-direction: column;
     margin: 50px;
     padding: 20px;
     background-color: #ffffff;
@@ -13,8 +15,33 @@
     box-shadow: 0 0 10px #ccc,
                 5px 5px 10px #ccc;
 
+    & .header-table {
+        display: flex;
+        justify-content: space-between;
+
+        & h3 {
+            color: #464553;
+        }
+
+        & .assignment-button {
+            margin: 0 0 10px 0;
+            background-color: #a0aec0;
+            border-color: rgba(65, 65, 65, 0.19);
+        }
+    }
+
     & table {
         margin: 0;
+
+        & thead {
+            border-color: transparent;
+
+            & tr {
+                & th:nth-child(1) {
+                    width: 5%;
+                }
+            }
+        }
 
         & tbody {
             & tr {

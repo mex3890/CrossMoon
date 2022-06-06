@@ -1,5 +1,9 @@
 <template>
     <div id="content-table">
+        <div class="header-table">
+            <h3>Assignments</h3>
+            <a href="#" class="btn btn-primary assignment-button">Create Assignment</a>
+        </div>
         <table class="table table-striped">
             <thead>
                 <tr>

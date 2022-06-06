@@ -1,5 +1,5 @@
 <template>
-    <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
+    <nav class="navbar navbar-expand-md navbar-light shadow-sm">
         <div class="container">
             <a class="navbar-brand" :href="urlWelcome">
                 <img :src="srcLogo" alt="@crossmoon">
@@ -18,7 +18,7 @@
                 </ul>
 
                 <!-- Right Side Of Navbar -->
-                <ul class="navbar-nav ms-auto">
+                <ul id="ul-auth" class="navbar-nav ms-auto">
                     <!-- Authentication Links -->
 
                     <li v-if="!parseInt(isAuthenticated)" class="nav-item">
