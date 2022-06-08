@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Http\Resources\AssignmentResource;
 use App\Models\Assignment;
+use App\Models\Category;
+use App\Models\Stat;
 use Illuminate\Contracts\Foundation\Application;
 use Illuminate\Contracts\View\Factory;
 use Illuminate\Contracts\View\View;
@@ -37,7 +39,9 @@ class AssignmentController extends Controller
      */
     public function create(): Application|Factory|View
     {
-        return view('assignment.create');
+        $stats = Stat::all();
+        $categories = Category::all();
+        return view('assignment.create', ['stats' => $stats, 'categories' => $categories]);
     }
 
     /**

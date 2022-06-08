@@ -53,6 +53,27 @@
                         display: flex;
                     }
 
+                    & .finish {
+                        background-color: #c7f5d9;
+                        padding: 2px 8px;
+                        color: #00b66c;
+                        border-radius: 12px;
+                    }
+
+                    & .inprogress {
+                        background-color: #ffebc2;
+                        padding: 2px 8px;
+                        color: #ff9300;
+                        border-radius: 12px;
+                    }
+
+                    & .created {
+                        background-color: #cfe0fc;
+                        padding: 2px 8px;
+                        color: #5e81ff;
+                        border-radius: 12px;
+                    }
+
                     & a {
                         display: flex;
                         justify-content: center;

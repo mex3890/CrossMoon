@@ -15,7 +15,7 @@
                     </th>
                     <th>Name</th>
                     <th>Category</th>
-                    <th>Stats</th>
+                    <th>Status</th>
                     <th colspan="3">Actions</th>
                 </tr>
             </thead>
@@ -24,7 +24,13 @@
                     <td>{{ assignment.id }}</td>
                     <td>{{ assignment.name }}</td>
                     <td>{{ assignment.category }}</td>
-                    <td>{{ assignment.stat }}</td>
+                    <td>
+                        <span :class="{
+                            finish:assignment.stat === 'Finished',
+                            inprogress:assignment.stat === 'In progress',
+                            created:assignment.stat === 'Created'}">
+                        {{ assignment.stat }}
+                    </span></td>
                     <td class="action"><a :href="urlAssignments + '/' + assignment.id"><i style="color: #21c267;" class='bx bxs-show'></i></a>
                     </td>
                     <td class="action"><a href="#"><i style="color: #000000;" class='bx bxs-edit'></i></a></td>
@@ -39,7 +45,9 @@
 export default {
     props: ['userAssignments', 'urlAssignments', 'urlCreate', 'csrfToken'],
     data() {
-        return {}
+        return {
+            isfinish: ass
+        }
     }
 }
 </script>
