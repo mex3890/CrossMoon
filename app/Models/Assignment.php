@@ -39,4 +39,30 @@ class Assignment extends Model
             'category_id.required' => 'The category is mandatory'
         ];
     }
+
+    public static function calculatePercentageAssignments(int $user_id)
+    {
+        $finished = 0;
+        $inProgress = 0;
+        $created = 0;
+        $total = 0;
+
+        $assignments = Assignment::where('user_id', auth()->user()->id)->with('category', 'stat')->get();
+        foreach ($assignments as $assignment){
+            $total++;
+            switch ($assignment->stat->name){
+                case 'Finished':
+                    $finished++;
+                    break;
+                case 'In progress':
+                    $inProgress++;
+                    break;
+                case 'Created':
+                    $created++;
+                    break;
+            }
+        }
+
+        return [$finished, $inProgress, $created, $total];
+    }
 }

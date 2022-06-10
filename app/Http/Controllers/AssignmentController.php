@@ -18,11 +18,6 @@ use Illuminate\Support\Arr;
 
 class AssignmentController extends Controller
 {
-    public function __construct()
-    {
-        //$this->middleware('auth');
-    }
-
     /**
      * Display a listing of the resource.
      *
@@ -78,9 +73,12 @@ class AssignmentController extends Controller
      */
     public function show(string $id): Application|Factory|View
     {
-        $assignment = Assignment::where('id', $id)->get();
-        $assignment = $assignment->load(['category', 'stat']);
-        return view('assignment.show', ['assignment' => AssignmentResource::collection($assignment)->toJson()]);
+        $assignment = Assignment::find($id);
+        if(auth()->user()->id === $assignment->user_id){
+            $assignment = $assignment->load(['category', 'stat']);
+            return view('assignment.show', ['assignment' => $assignment]);
+        }
+        return view('home', ['msg' => "You've been redirected because don't have access at this assignment"]);
     }
 
     /**

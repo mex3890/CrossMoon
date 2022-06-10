@@ -22,7 +22,6 @@ window.Vue = require('vue').default;
 Vue.component('example-component', require('./components/ExampleComponent.vue').default);
 Vue.component('app-header', require('./components/layouts/Header').default);
 Vue.component('app-footer', require('./components/layouts/Footer').default);
-Vue.component('app-table-show', require('./components/assignment/TableShow').default);
 Vue.component('app-create-form', require('./components/assignment/CreateForm').default);
 /**
  * Next, we will create a fresh Vue application instance and attach it to

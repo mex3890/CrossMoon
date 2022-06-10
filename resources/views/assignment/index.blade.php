@@ -24,7 +24,7 @@
                         <th colspan="3">Actions</th>
                     </tr>
                     </thead>
-                    <tbody>
+                    <tbody id="assignments-table">
                     @foreach($assignments as $assignment)
                         <tr>
                             <td>{{ $assignment->id }}</td>

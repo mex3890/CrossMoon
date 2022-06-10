@@ -4,6 +4,27 @@
 // Variables
 @import 'variables';
 
+.finish {
+    background-color: #c7f5d9;
+    padding: 2px 8px;
+    color: #00b66c;
+    border-radius: 12px;
+}
+
+.inprogress {
+    background-color: #ffebc2;
+    padding: 2px 8px;
+    color: #ff9300;
+    border-radius: 12px;
+}
+
+.created {
+    background-color: #cfe0fc;
+    padding: 2px 8px;
+    color: #5e81ff;
+    border-radius: 12px;
+}
+
 #content-table {
     display: flex;
     flex-direction: column;
@@ -55,12 +76,13 @@
                     text-align: center;
                 }
 
-
-
+                & th:nth-child(5) {
+                    text-align: center;
+                }
             }
         }
 
-        & tbody {
+        & #assignments-table {
             vertical-align: unset;
 
             & tr {
@@ -87,6 +109,10 @@
                     text-align: center;
                 }
 
+                & td:nth-child(5) {
+                    text-align: center;
+                }
+
                 & td {
 
                     &.action {
@@ -105,27 +131,6 @@
                                 background: none;
                             }
                         }
-                    }
-
-                    & .finish {
-                        background-color: #c7f5d9;
-                        padding: 2px 8px;
-                        color: #00b66c;
-                        border-radius: 12px;
-                    }
-
-                    & .inprogress {
-                        background-color: #ffebc2;
-                        padding: 2px 8px;
-                        color: #ff9300;
-                        border-radius: 12px;
-                    }
-
-                    & .created {
-                        background-color: #cfe0fc;
-                        padding: 2px 8px;
-                        color: #5e81ff;
-                        border-radius: 12px;
                     }
 
                     & a {
