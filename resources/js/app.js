@@ -20,7 +20,6 @@ window.Vue = require('vue').default;
 // files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(key).default))
 
 Vue.component('example-component', require('./components/ExampleComponent.vue').default);
-//Vue.component('login', require('./components/auth/Login').default);
 Vue.component('app-header', require('./components/layouts/Header').default);
 Vue.component('app-footer', require('./components/layouts/Footer').default);
 Vue.component('app-table', require('./components/assignment/Table').default);

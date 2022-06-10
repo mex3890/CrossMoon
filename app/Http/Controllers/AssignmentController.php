@@ -9,8 +9,11 @@ use App\Models\Stat;
 use Illuminate\Contracts\Foundation\Application;
 use Illuminate\Contracts\View\Factory;
 use Illuminate\Contracts\View\View;
+use Illuminate\Http\JsonResponse;
+use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
+use Illuminate\Routing\Redirector;
 use Illuminate\Support\Arr;
 
 class AssignmentController extends Controller
@@ -48,11 +51,24 @@ class AssignmentController extends Controller
      * Store a newly created resource in storage.
      *
      * @param Request $request
-     * @return Response
+     * @return RedirectResponse|Redirector|Application
      */
-    public function store(Request $request): Response
+    public function store(Request $request): Application|RedirectResponse|Redirector
     {
-        //
+        if($request->input('_token') != ''){
+            $request->validate(Assignment::rules(), Assignment::feedback());
+            $assignment = new Assignment([
+                'name' => $request->get('name'),
+                'description' => $request->get('description'),
+                'user_id' => auth()->user()->id,
+                'stat_id' => $request->get('stat_id'),
+                'category_id' => $request->get('category_id')
+            ]);
+            $assignment->save();
+            return redirect(route('assignment.index'))->with('Success', 'Assignment added successfully!');
+        }
+
+        return redirect(route('assignment.index'))->with('Failed', 'Assignment fail!');
     }
 
     /**

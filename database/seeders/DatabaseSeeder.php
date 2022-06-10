@@ -2,8 +2,11 @@
 
 namespace Database\Seeders;
 
-use Illuminate\Database\Console\Seeds\WithoutModelEvents;
+use App\Models\Assignment;
+use App\Models\Stat;
+use App\Models\User;
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\DB;
 
 class DatabaseSeeder extends Seeder
 {
@@ -14,11 +17,67 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        // \App\Models\User::factory(10)->create();
+         DB::table('stats')->insert([
+             'name' => 'Finished',
+             'created_at' => '2022-06-09 22:24:06',
+             'updated_at' => null
+         ]);
 
-        // \App\Models\User::factory()->create([
-        //     'name' => 'Test User',
-        //     'email' => 'test@example.com',
-        // ]);
+        DB::table('stats')->insert([
+            'name' => 'In progress',
+            'created_at' => '2022-06-09 22:24:06',
+            'updated_at' => null
+        ]);
+
+        DB::table('stats')->insert([
+            'name' => 'Created',
+            'created_at' => '2022-06-09 22:24:06',
+            'updated_at' => null
+        ]);
+
+        DB::table('categories')->insert([
+            'name' => 'Php',
+            'created_at' => '2022-06-09 22:24:06',
+            'updated_at' => null
+        ]);
+
+        DB::table('categories')->insert([
+            'name' => 'Java',
+            'created_at' => '2022-06-09 22:24:06',
+            'updated_at' => null
+        ]);
+
+        DB::table('categories')->insert([
+            'name' => 'Node',
+            'created_at' => '2022-06-09 22:24:06',
+            'updated_at' => null
+        ]);
+
+        DB::table('categories')->insert([
+            'name' => 'Js',
+            'created_at' => '2022-06-09 22:24:06',
+            'updated_at' => null
+        ]);
+
+        DB::table('roles')->insert([
+            'name' => 'User',
+            'created_at' => '2022-06-09 22:24:06',
+            'updated_at' => null
+        ]);
+
+        DB::table('roles')->insert([
+            'name' => 'Admin',
+            'created_at' => '2022-06-09 22:24:06',
+            'updated_at' => null
+        ]);
+
+        DB::table('roles')->insert([
+            'name' => 'Super admin',
+            'created_at' => '2022-06-09 22:24:06',
+            'updated_at' => null
+        ]);
+
+         User::factory(50)->create();
+         Assignment::factory(1000)->create();
     }
 }
