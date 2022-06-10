@@ -33,7 +33,7 @@
                                     {{$assignment->stat->name}}
                                 </span>
                             </td>
-                            <td>{{ $assignment->name }}</td>
+                            <td id="name">{{ $assignment->name }}</td>
                             <td>{{ $assignment->category->name }}</td>
                             <td class="action"><a href="{{route('assignment.show', ['assignment' => $assignment])}}"><i
                                         style="color: #21c267;" class='bx bxs-show'></i></a>

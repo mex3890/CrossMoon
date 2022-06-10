@@ -65,6 +65,13 @@
 
             & tr {
 
+                #name {
+                    white-space: nowrap;
+                    overflow: hidden;
+                    text-overflow: ellipsis;
+                    max-width: 200px;
+                }
+
                 & td:nth-child(1) {
                     width: 50px;
                     text-align: center;
