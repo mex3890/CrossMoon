@@ -19,7 +19,7 @@ class AssignmentFactory extends Factory
     public function definition(): array
     {
         return [
-            'name' => $this->faker->text(20),
+            'name' => $this->faker->text(150),
             'description' => $this->faker->text(),
             'user_id' => function () {
                 User::createFakeUser();

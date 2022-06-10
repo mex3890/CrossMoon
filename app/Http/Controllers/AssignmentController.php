@@ -31,8 +31,7 @@ class AssignmentController extends Controller
     public function index(): View|Factory|Application
     {
         $assignments = Assignment::where('user_id', auth()->user()->id)->with('category', 'stat')->get();
-        return view('assignment.index', [
-            'assignments' => AssignmentResource::collection($assignments)->toJson()]);
+        return view('assignment.index', ['assignments' => $assignments]);
     }
 
     /**
@@ -111,10 +110,11 @@ class AssignmentController extends Controller
      * Remove the specified resource from storage.
      *
      * @param Assignment $assignment
-     * @return Response
+     * @return RedirectResponse
      */
-    public function destroy(Assignment $assignment): Response
+    public function destroy(Assignment $assignment): RedirectResponse
     {
-        //
+        $assignment->delete();
+        return redirect()->route('assignment.index');
     }
 }

@@ -39,18 +39,65 @@
             border-color: transparent;
 
             & tr {
+
                 & th:nth-child(1) {
-                    width: 5%;
+                    text-align: center;
+                    width: 50px;
                 }
+
+                & th:nth-child(2) {
+                    width: 120px;
+                    text-align: center;
+                }
+
+                & th:nth-child(4) {
+                    width: 150px;
+                    text-align: center;
+                }
+
+
+
             }
         }
 
         & tbody {
+            vertical-align: unset;
+
             & tr {
+
+                & td:nth-child(1) {
+                    width: 50px;
+                    text-align: center;
+                }
+
+                & td:nth-child(2) {
+                    width: 120px;
+                    text-align: center;
+                }
+
+                & td:nth-child(4) {
+                    width: 50px;
+                    text-align: center;
+                }
+
                 & td {
 
-                    & .action {
-                        display: flex;
+                    &.action {
+                        width: 70px;
+                        padding: 0.3rem 0.5rem;
+
+                        & form {
+                            width: 100%;
+                            display: flex;
+                            justify-content: center;
+
+                            & button {
+                                line-height: unset;
+                                font-size: 1.5rem;
+                                border: none;
+                                background: none;
+                            }
+                        }
                     }
 
                     & .finish {
