@@ -13,7 +13,7 @@
                             </div>
                         @endif
                         <div>
-                            <table class="table table-striped">
+                            <table class="table table-striped home-table">
                                 <thead>
                                     <tr>
                                         <th>Status</th>
@@ -27,25 +27,25 @@
                                         <td>Finished</td>
                                         <td>{{$finished}}</td>
                                         <td>{{$percentageFinished*100}}%</td>
-                                        <td style="text-align: center"><button class="btn btn-primary" style="width: 100px">Finished</button></td>
+                                        <td style="text-align: center"><a href="{{route('assignment.index', ['filter' => 'finished'])}}" class="btn btn-primary" style="width: 100px">Finished</a></td>
                                     </tr>
                                     <tr>
                                         <td>In progress</td>
                                         <td>{{$inProgress}}</td>
                                         <td>{{$percentageInProgress*100}}%</td>
-                                        <td style="text-align: center"><button class="btn btn-primary" style="width: 100px">In progress</button></td>
+                                        <td style="text-align: center"><a href="{{route('assignment.index', ['filter' => 'inProgress'])}}" class="btn btn-primary" style="width: 100px">In progress</a></td>
                                     </tr>
                                     <tr>
                                         <td>Created</td>
                                         <td>{{$created}}</td>
                                         <td>{{$percentageCreated*100}}%</td>
-                                        <td style="text-align: center"><button class="btn btn-primary" style="width: 100px">Created</button></td>
+                                        <td style="text-align: center"><a href="{{route('assignment.index', ['filter' => 'created'])}}" class="btn btn-primary" style="width: 100px">Created</a></td>
                                     </tr>
                                     <tr>
                                         <td>Total</td>
                                         <td>{{$total}}</td>
                                         <td>100%</td>
-                                        <td style="text-align: center"><button class="btn btn-primary" style="width: 100px">Total</button></td>
+                                        <td style="text-align: center"><a href="{{route('assignment.index', ['filter' => 'total'])}}" class="btn btn-primary" style="width: 100px">Total</a></td>
                                     </tr>
                                 </tbody>
                             </table>
@@ -54,15 +54,15 @@
                 <div class="new-container">
                     <div class="d-flex align-items-baseline mb-3">
                         <div class="container-inter">
-                            <div class="bar finish-bar"></div>
+                            <div title="{{$percentageFinished*100}}%" class="bar finish-bar"></div>
                             <span>Finished</span>
                         </div>
                         <div class="container-inter">
-                            <div class="bar progress-bar"></div>
+                            <div title="{{$percentageInProgress*100}}%" class="bar progress-bar"></div>
                             <span>In progress</span>
                         </div>
                         <div class="container-inter">
-                            <div class="bar created-bar"></div>
+                            <div title="{{$percentageCreated*100}}%" class="bar created-bar"></div>
                             <span>Created</span>
                         </div>
                     </div>
@@ -89,21 +89,34 @@
         width: 50px;
         background-color: #0a53be;
         margin: 50px 50px 0 50px;
+        border-top-left-radius: 3px;
+        border-top-right-radius: 3px;
     }
 
     .new-container div span {
         text-align: center;
+        font-weight: bold;
+        color: rgb(131, 131, 131);
     }
 
     .finish-bar{
+        background: linear-gradient(to top, #000000, #2c2c2c);
         padding-top: {{$percentageFinished*300}};
     }
 
     .progress-bar{
+        background-color: rgb(72, 72, 72)!important;
+        background: linear-gradient(to top, #2c2c2c, rgb(72, 72, 72));
         padding-top: {{$percentageInProgress*300}};
     }
 
     .created-bar{
+        background-color: rgb(127, 127, 127);
+        background: linear-gradient(to top, #000000, #2c2c2c);
         padding-top: {{$percentageCreated*300}};
+    }
+
+    .home-table td, .home-table th {
+        text-align: center;
     }
 </style>
