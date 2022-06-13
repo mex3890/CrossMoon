@@ -23,6 +23,3 @@ Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Route::resource('assignment', AssignmentController::class)->middleware('auth');
-Route::get('/assignments/{$filter}', function (string $filter) {
-    return route('assignment.index', ['filter' => $filter]);
-})->name('filtered')->middleware('auth');

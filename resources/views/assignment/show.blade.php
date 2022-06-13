@@ -33,6 +33,10 @@
                     </tr>
                     </tbody>
                 </table>
+                <div id="show-content-buttons">
+                    <a href="{{route('assignment.index')}}" class="btn btn-secondary">Return</a>
+                    <a href="#" class="btn btn-secondary">Update</a>
+                </div>
             </div>
         </div>
     </div>
