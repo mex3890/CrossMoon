@@ -63,4 +63,8 @@ class User extends Authenticatable
             'email.email' => 'Send a valid email address'
         ];
     }
+
+    public static function createFakeUser() {
+        return User::factory()->count(1)->create();
+    }
 }
