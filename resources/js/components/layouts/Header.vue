@@ -42,6 +42,9 @@
                            onclick="event.preventDefault();
                                document.getElementById('logout-form').submit();">Logout
                         </a>
+                        <a class="dropdown-item" href="#">
+                            Profile
+                        </a>
 
                         <form id="logout-form" :action="urlLogout" method="POST" class="d-none">
                             <input type="hidden" name="_token" :value="csrfToken">
