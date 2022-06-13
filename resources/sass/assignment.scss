@@ -1,4 +1,11 @@
 // Variables
 @import 'variables';
 
-
+.form-assignment {
+    background-color: #ffffff;
+    border-radius: 5px;
+    border: 1px solid rgba(192, 192, 192, 0.3);
+    box-shadow: 0 0 10px #ccc, 5px 5px 10px #ccc;
+    padding: 20px 40px;
+    margin: auto 15vw;
+}
