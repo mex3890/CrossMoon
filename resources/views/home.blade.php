@@ -45,7 +45,7 @@
                                         <td>Total</td>
                                         <td>{{$total}}</td>
                                         <td>100%</td>
-                                        <td style="text-align: center"><a href="{{route('assignment.index', ['filter' => 'total'])}}" class="btn btn-primary" style="width: 100px">Total</a></td>
+                                        <td style="text-align: center"><a href="{{route('assignment.index')}}" class="btn btn-primary" style="width: 100px">Total</a></td>
                                     </tr>
                                 </tbody>
                             </table>
@@ -97,22 +97,21 @@
         text-align: center;
         font-weight: bold;
         color: rgb(131, 131, 131);
+        border-top: 1px solid #000000;
     }
 
     .finish-bar{
-        background: linear-gradient(to top, #000000, #2c2c2c);
+        background: linear-gradient(to top, #2c2c2c, #4d4d4d);
         padding-top: {{$percentageFinished*300}};
     }
 
     .progress-bar{
-        background-color: rgb(72, 72, 72)!important;
-        background: linear-gradient(to top, #2c2c2c, rgb(72, 72, 72));
+        background: linear-gradient(to top, #4d4d4d, rgb(114, 114, 114));
         padding-top: {{$percentageInProgress*300}};
     }
 
     .created-bar{
-        background-color: rgb(127, 127, 127);
-        background: linear-gradient(to top, #000000, #2c2c2c);
+        background: linear-gradient(to top, rgb(114, 114, 114), #b4b4b4);
         padding-top: {{$percentageCreated*300}};
     }
 
