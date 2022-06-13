@@ -26,13 +26,13 @@ class AssignmentController extends Controller
      */
     public function index(Request $request): View|Factory|Application
     {
-        $filter = $request->get('filter') ?? 'unset';
-        $assignments = match ($filter) {
-            'unset' => Assignment::where('user_id', auth()->user()->id)->with('category', 'stat')->get(),
-            'finished' => Assignment::getFinished(auth()->user()->id),
-            'inProgress' => Assignment::getInProgress(auth()->user()->id),
-            'created' => Assignment::getCreated(auth()->user()->id),
-        };
+        $filter = $request->get('filter');
+        if($filter === null){
+            $assignments = Assignment::where('user_id', auth()->user()->id)->with('category', 'stat')->get();
+            return view('assignment.index', ['assignments' => $assignments]);
+        }
+
+        $assignments = Assignment::getFiltered(auth()->user()->id, $filter);
 
         return view('assignment.index', ['assignments' => $assignments]);
     }

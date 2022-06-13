@@ -7,30 +7,18 @@ use App\Models\User;
 
 trait Repository
 {
-    public static function getFinished(User|int $user)
+    public static function getFiltered(User|int $user, string $filter)
     {
         if($user instanceof User){
             $user = $user->id;
         }
 
-        return Assignment::where('user_id', $user)->where('stat_id', 1)->with('category', 'stat')->get();
-    }
+        $filter = match ($filter) {
+            'finished' => 1,
+            'inProgress' => 2,
+            'created' => 3,
+        };
 
-    public static function getInProgress(User|int $user)
-    {
-        if($user instanceof User){
-            $user = $user->id;
-        }
-
-        return Assignment::where('user_id', $user)->where('stat_id', 2)->with('category', 'stat')->get();
-    }
-
-    public static function getCreated(User|int $user)
-    {
-        if($user instanceof User){
-            $user = $user->id;
-        }
-
-        return Assignment::where('user_id', $user)->where('stat_id', 3)->with('category', 'stat')->get();
+        return Assignment::where('user_id', $user)->where('stat_id', $filter)->with('category', 'stat')->get();
     }
 }
