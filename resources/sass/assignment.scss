@@ -10,12 +10,12 @@
     margin: auto 15vw;
 }
 
-#show-content-buttons {
+.content-buttons {
     margin-top: 20px;
     display: flex;
     justify-content: flex-end;
 
-    & a {
+    & a, button {
         margin: 0 10px;
     }
 }

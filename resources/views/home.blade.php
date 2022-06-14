@@ -27,25 +27,25 @@
                                         <td>Finished</td>
                                         <td>{{$finished}}</td>
                                         <td>{{$percentageFinished*100}}%</td>
-                                        <td style="text-align: center"><a href="{{route('assignment.index', ['filter' => 'finished'])}}" class="btn btn-primary" style="width: 100px">Finished</a></td>
+                                        <td style="text-align: center"><a href="{{route('assignment.index', ['filter' => 'finished'])}}" class="btn btn-secondary" style="width: 100px">Finished</a></td>
                                     </tr>
                                     <tr>
                                         <td>In progress</td>
                                         <td>{{$inProgress}}</td>
                                         <td>{{$percentageInProgress*100}}%</td>
-                                        <td style="text-align: center"><a href="{{route('assignment.index', ['filter' => 'inProgress'])}}" class="btn btn-primary" style="width: 100px">In progress</a></td>
+                                        <td style="text-align: center"><a href="{{route('assignment.index', ['filter' => 'inProgress'])}}" class="btn btn-secondary" style="width: 100px">In progress</a></td>
                                     </tr>
                                     <tr>
                                         <td>Created</td>
                                         <td>{{$created}}</td>
                                         <td>{{$percentageCreated*100}}%</td>
-                                        <td style="text-align: center"><a href="{{route('assignment.index', ['filter' => 'created'])}}" class="btn btn-primary" style="width: 100px">Created</a></td>
+                                        <td style="text-align: center"><a href="{{route('assignment.index', ['filter' => 'created'])}}" class="btn btn-secondary" style="width: 100px">Created</a></td>
                                     </tr>
                                     <tr>
                                         <td>Total</td>
                                         <td>{{$total}}</td>
                                         <td>100%</td>
-                                        <td style="text-align: center"><a href="{{route('assignment.index')}}" class="btn btn-primary" style="width: 100px">Total</a></td>
+                                        <td style="text-align: center"><a href="{{route('assignment.index')}}" class="btn btn-secondary" style="width: 100px">Total</a></td>
                                     </tr>
                                 </tbody>
                             </table>

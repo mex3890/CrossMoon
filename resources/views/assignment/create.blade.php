@@ -85,7 +85,10 @@
                     </select>
                 @endif
             </div>
-            <button type="submit" class="btn btn-primary">Create</button>
+            <div class="content-buttons">
+                <a class="btn btn-secondary" href="{{route('assignment.index')}}">Return</a>
+                <button type="submit" class="btn btn-secondary">Create</button>
+            </div>
         </form>
     </div>
 @endsection
