@@ -12,15 +12,11 @@
                 <table class="table table-striped">
                     <thead>
                     <tr>
-                        <th>ID
-                            {{--                          <form method="GET" action="{{route('assignment')}}">--}}
-                            {{--                              @csrf--}}
-
-                            {{--                          </form>--}}
-                        </th>
+                        <th>ID</th>
                         <th>Status</th>
                         <th>Name</th>
                         <th>Category</th>
+                        <th>Validity</th>
                         <th colspan="3">Actions</th>
                     </tr>
                     </thead>
@@ -29,12 +25,14 @@
                         <tr>
                             <td>{{ $assignment->id }}</td>
                             <td>
-                                <span class="{{$assignment->stat->name === 'Finished' ? 'finish' : ''}}{{$assignment->stat->name === 'In progress' ? 'inprogress' : ''}}{{$assignment->stat->name === 'Created' ? 'created' : ''}}">
-                                    {{$assignment->stat->name}}
+                                <span class="{{$assignment->stat->name === 'Finished' ? 'finish' : ''}}{{$assignment->stat->name === 'In progress' ? 'inprogress' : ''}}
+                                {{$assignment->stat->name === 'Created' ? 'created' : ''}} {{($assignment->validity < now() && $assignment->stat->name !== 'Finished') ? 'expired' : ''}}">
+                                    {{($assignment->validity < now() && $assignment->stat->name !== 'Finished') ? 'Expired' : $assignment->stat->name}}
                                 </span>
                             </td>
                             <td id="name">{{ $assignment->name }}</td>
                             <td>{{ $assignment->category->name }}</td>
+                            <td><span class={{($assignment->validity < now() && $assignment->stat->name !== 'Finished') ? 'expired' : ''}}>{{ $assignment->validity }}</span></td>
                             <td class="action"><a href="{{route('assignment.show', ['assignment' => $assignment])}}"><i
                                         style="color: #21c267;" class='bx bxs-show'></i></a>
                             </td>

@@ -4,19 +4,15 @@ namespace App\Models;
 
 use App\Models\Traits\Assignment\Relationships;
 use App\Models\Traits\Assignment\Repository;
+use App\Models\Traits\Assignment\Scopes;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
 class Assignment extends Model
 {
-    use HasFactory, Relationships, Repository;
+    use HasFactory, Relationships, Repository, Scopes;
 
     protected $guarded = ['id'];
-
-    public function createFakeAssignment()
-    {
-
-    }
 
     public static function rules(): array
     {
@@ -24,7 +20,8 @@ class Assignment extends Model
             'name' => 'required|min:3|max:150',
             'description' => 'required|min:1|max:500',
             'stat_id' => 'required',
-            'category_id' => 'required'
+            'category_id' => 'required',
+            'validity' => "required|date"
         ];
     }
 
@@ -37,20 +34,28 @@ class Assignment extends Model
             'description.min' => 'Minimum 1 characters',
             'description.max' => 'Maximum 500 characters',
             'stat_id.required' => 'The status is mandatory',
-            'category_id.required' => 'The category is mandatory'
+            'category_id.required' => 'The category is mandatory',
+            'validity.required' => 'The date is mandatory',
+            'validity.date' => 'The date is invalid'
         ];
     }
 
-    public static function calculatePercentageAssignments(int $user_id)
+    public static function calculatePercentageAssignments(int $user_id): array
     {
         $finished = 0;
         $inProgress = 0;
         $created = 0;
+        $validity = 0;
         $total = 0;
 
         $assignments = Assignment::where('user_id', auth()->user()->id)->with('category', 'stat')->get();
         foreach ($assignments as $assignment){
             $total++;
+
+            if(Assignment::isValidity($assignment)){
+                $validity++;
+            }
+
             switch ($assignment->stat->name){
                 case 'Finished':
                     $finished++;
@@ -64,6 +69,11 @@ class Assignment extends Model
             }
         }
 
-        return [$finished, $inProgress, $created, $total];
+        return [$finished, $inProgress, $created, $validity, $total];
+    }
+
+    public static function isValidity(Assignment $assignment): bool
+    {
+        return $assignment->validity < now() && $assignment->stat->name !== 'Finished';
     }
 }

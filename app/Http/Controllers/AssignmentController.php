@@ -29,6 +29,13 @@ class AssignmentController extends Controller
         $filter = $request->get('filter');
         if($filter === null){
             $assignments = Assignment::where('user_id', auth()->user()->id)->with('category', 'stat')->get();
+
+            return view('assignment.index', ['assignments' => $assignments]);
+        }
+        if ($filter === 'expired'){
+            $assignments = Assignment::where([['validity', '<', now()], ['user_id', auth()->user()->id], ['stat_id', '<>', 1]])
+                ->with('category', 'stat')->get();
+
             return view('assignment.index', ['assignments' => $assignments]);
         }
 
@@ -64,7 +71,8 @@ class AssignmentController extends Controller
                 'description' => $request->get('description'),
                 'user_id' => auth()->user()->id,
                 'stat_id' => $request->get('stat_id'),
-                'category_id' => $request->get('category_id')
+                'category_id' => $request->get('category_id'),
+                'validity' => $request->get('validity')
             ]);
             $assignment->save();
             return redirect(route('assignment.index'))->with('Success', 'Assignment added successfully!');

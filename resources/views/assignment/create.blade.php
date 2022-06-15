@@ -33,7 +33,7 @@
                 @endif
             </div>
             <div class="mb-3">
-                <label for="exampleInputPassword1" class="form-label">Status</label>
+                <label for="exampleInputPassword1" class="form-label">Category</label>
                 @if($errors->has('category_id'))
                     <select class="form-select is-invalid" name="category_id">
                         <option value="">Select a category</option>
@@ -60,7 +60,7 @@
 
             </div>
             <div class="mb-3">
-                <label for="exampleInputPassword1" class="form-label">Category</label>
+                <label for="exampleInputPassword1" class="form-label">Status</label>
                 @if($errors->has('stat_id'))
                     <select class="form-select is-invalid" name="stat_id">
                         <option value="">Select a status</option>
@@ -83,6 +83,19 @@
                             <option value="{{$stat->id}}" {{old('stat_id') == $stat->id ? 'selected' : ''}}>{{$stat->name}}</option>
                         @endforeach
                     </select>
+                @endif
+            </div>
+            <div class="mb-3">
+                <label class="form-label">Validity</label>
+                @if($errors->has('validity'))
+                    <input type="date" class="form-control is-invalid" name="validity"
+                           value="{{$assignment->validity ?? old('validity')}}">
+                    <span class="invalid-feedback">{{$errors->first('validity')}}</span>
+                @elseif(old('validity') && !($errors->has('validity')))
+                    <input type="date" class="form-control is-valid" name="validity"
+                           value="{{$assignment->validity ?? old('validity')}}">
+                @else
+                    <input type="datetime-local" class="form-control" name="validity" value="{{$assignment->validity ?? old('validity')}}">
                 @endif
             </div>
             <div class="content-buttons">

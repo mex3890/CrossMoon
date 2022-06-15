@@ -11,16 +11,12 @@ return new class extends Migration
      *
      * @return void
      */
-    public function up()
+    public function up(): void
     {
-        Schema::create('assignments', function (Blueprint $table) {
+        Schema::create('user_post', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
-            $table->text('description');
-            $table->dateTime('validity');
+            $table->foreignId('post_id')->constrained();
             $table->foreignId('user_id')->constrained();
-            $table->foreignId('stat_id')->constrained();
-            $table->foreignId('category_id')->constrained();
             $table->timestamps();
         });
     }
@@ -30,8 +26,8 @@ return new class extends Migration
      *
      * @return void
      */
-    public function down()
+    public function down(): void
     {
-        Schema::dropIfExists('assignments');
+        Schema::dropIfExists('user_post');
     }
 };

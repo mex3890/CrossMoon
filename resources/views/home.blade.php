@@ -42,10 +42,16 @@
                                         <td style="text-align: center"><a href="{{route('assignment.index', ['filter' => 'created'])}}" class="btn btn-secondary" style="width: 100px">Created</a></td>
                                     </tr>
                                     <tr>
+                                        <td>Expired</td>
+                                        <td>{{$expired}}</td>
+                                        <td>{{$percentageExpired*100}}%</td>
+                                        <td style="text-align: center"><a href="{{route('assignment.index', ['filter' => 'expired'])}}" class="btn btn-secondary" style="width: 100px">Expired</a></td>
+                                    </tr>
+                                    <tr>
                                         <td>Total</td>
                                         <td>{{$total}}</td>
                                         <td>100%</td>
-                                        <td style="text-align: center"><a href="{{route('assignment.index')}}" class="btn btn-secondary" style="width: 100px">Total</a></td>
+                                        <td style="text-align: center"><a href="{{route('assignment.index')}}" class="btn btn-secondary" style="width: 100px">All</a></td>
                                     </tr>
                                 </tbody>
                             </table>
@@ -53,17 +59,21 @@
                     </div>
                 <div class="new-container">
                     <div class="d-flex align-items-baseline mb-3">
-                        <div class="container-inter">
+                        <div class="container-inter {{$finished === 0 ? 'empty' : ''}}">
                             <div title="{{$percentageFinished*100}}%" class="bar finish-bar"></div>
                             <span>Finished</span>
                         </div>
-                        <div class="container-inter">
+                        <div class="container-inter {{$inProgress === 0 ? 'empty' : ''}}">
                             <div title="{{$percentageInProgress*100}}%" class="bar progress-bar"></div>
                             <span>In progress</span>
                         </div>
-                        <div class="container-inter">
+                        <div class="container-inter {{$created === 0 ? 'empty' : ''}}">
                             <div title="{{$percentageCreated*100}}%" class="bar created-bar"></div>
                             <span>Created</span>
+                        </div>
+                        <div class="container-inter {{$expired === 0 ? 'empty' : ''}}">
+                            <div title="{{$percentageExpired*100}}%" class="bar expired-bar"></div>
+                            <span>Expired</span>
                         </div>
                     </div>
                 </div>
@@ -101,21 +111,30 @@
     }
 
     .finish-bar{
-        background: linear-gradient(to top, #2c2c2c, #4d4d4d);
+        background: linear-gradient(to top, #008324, #72ff77);
         padding-top: {{$percentageFinished*300}};
     }
 
     .progress-bar{
-        background: linear-gradient(to top, #4d4d4d, rgb(114, 114, 114));
+        background: linear-gradient(to top, #ff9300, #ffe395);
         padding-top: {{$percentageInProgress*300}};
     }
 
     .created-bar{
-        background: linear-gradient(to top, rgb(114, 114, 114), #b4b4b4);
+        background: linear-gradient(to top, rgb(0, 59, 204), #4299ff);
         padding-top: {{$percentageCreated*300}};
+    }
+
+    .expired-bar{
+        background: linear-gradient(to top, #6b0000, #ff3f3f);
+        padding-top: {{$percentageExpired*300}};
     }
 
     .home-table td, .home-table th {
         text-align: center;
+    }
+
+    .empty {
+        display: none;
     }
 </style>

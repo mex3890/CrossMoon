@@ -31,6 +31,14 @@
                         <th>Category</th>
                         <td>{{ $assignment->category->name }}</td>
                     </tr>
+                    <tr>
+                        <th>Validity</th>
+                        <td>
+                            <span class={{$assignment->validity < now() ? 'expired' : ''}}>
+                                {{ $assignment->validity }}
+                            </span>
+                        </td>
+                    </tr>
                     </tbody>
                 </table>
                 <div class="content-buttons">

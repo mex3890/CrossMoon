@@ -21,6 +21,7 @@ class AssignmentFactory extends Factory
         return [
             'name' => $this->faker->text(150),
             'description' => $this->faker->text(),
+            'validity' => $this->faker->dateTimeBetween('-10 years', '+10 years'),
             'user_id' => function () {
                 User::createFakeUser();
                 return User::find(rand(1, 50))->id;

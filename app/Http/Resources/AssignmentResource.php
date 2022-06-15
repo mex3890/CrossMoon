@@ -22,6 +22,7 @@ class AssignmentResource extends JsonResource
             'user_id' => $this->user_id,
             'category' => $this->category->name,
             'stat' => $this->stat->name,
+            'expiration' => $this->expiration
         ];
     }
 }
