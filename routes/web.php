@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AssignmentController;
+use App\Http\Controllers\PostController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
@@ -23,3 +24,8 @@ Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Route::resource('assignment', AssignmentController::class)->middleware('auth');
+Route::resource('post', PostController::class);
+Route::prefix('admin')->group(function (){
+    Route::get('/dashboard', [App\Http\Controllers\UserController::class, 'adminDashboard'])
+        ->name('dashboard');
+});

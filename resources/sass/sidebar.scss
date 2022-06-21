@@ -1,0 +1,192 @@
+@import "variables";
+
+* {
+    font-family: $font-family-sans-serif !important;
+}
+
+main {
+    padding: 0 !important;
+    display: grid;
+
+    & #sidebar {
+        grid-area: sidebar;
+        background-color: #313a46;
+        display: flex;
+        flex-direction: column;
+
+        & nav {
+            margin: 15px;
+
+            & hr {
+                color: $text-color;
+            }
+
+            & .title-cell {
+                margin: 5px 0;
+                color: $text-color;
+                font-size: 0.7rem;
+                font-weight: bold;
+            }
+
+            & .link-cell {
+                color: $text-color;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                margin: 10px auto;
+
+                & a {
+                    display: flex;
+                    align-items: center;
+                    justify-content: space-between;
+                    text-decoration: none;
+                    color: $text-color;
+
+                    &:hover {
+                        color: #ffffff;
+                    }
+
+                    &.selected {
+                        color: $action-color;
+                    }
+
+                    & i span {
+                        margin-left: 10px;
+                    }
+                }
+
+                & .item-dropdown {
+                    margin-left: 14px;
+                    margin-top: 5px;
+                    text-decoration: none;
+                    color: $text-color;
+                }
+
+                & .dark-mode {
+                    display: flex;
+                    justify-content: space-between;
+
+                    & input {
+                        background-color: $ternary-color;
+
+                        &.form-check-input:checked {
+                            border-color: $action-color;
+                        }
+
+                        &.form-check-input:focus {
+                            box-shadow: 0 0 0 0.17rem rgb(0, 182, 108, 25%);
+                            border-color: rgb(0, 182, 108, 25%);
+
+                        }
+                    }
+                }
+
+                & .circle {
+                    margin-top: 10px;
+                    margin-left: 25px;
+                    text-decoration: none;
+                    color: $text-color;
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: center;
+
+
+                    &.assignment-color i {
+                        color: $action-color;
+                        text-shadow: 0 0 8px $action-color;
+
+                        & span {
+                            color: $text-color;
+                            text-shadow: none;
+                        }
+
+                        &.search {
+
+                            & i {
+                                font-size: 0.8rem;
+
+                                & span {
+                                    font-size: 0.8rem;
+                                }
+                            }
+                        }
+                    }
+
+                    & i {
+                        font-size: 0.4rem;
+
+                        & span {
+                            font-size: 0.8rem;
+                            margin-left: 5px;
+                        }
+                    }
+
+                    &.search {
+
+                        & i {
+                            font-size: 0.8rem;
+
+                            & span {
+                                font-size: 0.8rem;
+                            }
+                        }
+                    }
+
+                    & input {
+                        background-color: $ternary-color;
+
+                        &.form-check-input:checked {
+                            border-color: $action-color;
+                        }
+
+                        &.form-check-input:focus {
+                            box-shadow: 0 0 0 0.25rem rgb(0, 182, 108, 25%);
+                        }
+                    }
+
+                    & button {
+                        background-color: transparent;
+                        border: none;
+                        color: $text-color;
+
+                        & .search-assignment {
+                            font-size: 1.1rem;
+                        }
+                    }
+                }
+            }
+
+            & .link-cell.home {
+                color: #ffffff;
+
+                & a {
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: center;
+
+                    span {
+                        margin-left: 10px;
+                        font-family: $font-family-sans-serif;
+                    }
+
+                    .notify-box {
+                        background-color: $action-color;
+                        padding: 0 7px;
+                        border-radius: 6px;
+                        font-size: 0.8rem;
+
+                        & span {
+                            color: #ffffff;
+                            padding: 0;
+                            margin: 0;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    & #main {
+        grid-area: main;
+    }
+}

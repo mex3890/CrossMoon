@@ -16,4 +16,6 @@ mix.js('resources/js/app.js', 'public/js')
     .sass('resources/sass/app.scss', 'public/css')
     .sass('resources/sass/table.scss', 'public/css')
     .sass('resources/sass/assignment.scss', 'public/css')
+    .sass('resources/sass/sidebar.scss', 'public/css')
+    .sass('resources/sass/header.scss', 'public/css')
     .disableNotifications();

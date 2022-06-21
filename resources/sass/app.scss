@@ -21,117 +21,38 @@ main {
     background: #f8fafc;
 }
 
-#nav {
-    background-color: #464553;
-    height: 60px;
-    padding: 0;
+.dark {
+    background-color: $dark-mode-color;
 
-    & .header {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        width: 100%;
-        height: 100%;
-        margin: 0 10vw;
+    #home-table {
+        background-color: $second-color;
+        color: $text-color;
 
-        & .navbar-logo {
-            & img {
-                height: 40px;
+        & table {
+            color: $text-color;
+            border-color: $text-color;
+
+            & tbody {
+                border-top: 2px solid $text-color;
+            }
+
+            & tbody, thead, tr, td {
+                color: $text-color;
+            }
+
+            & thead tr th {
+                color: $action-color;
             }
         }
 
-        & .navbar-collapse {
-            flex-grow: unset;
-        }
-
-        #navbarSupportedContent {
-            height: 100%;
-
-            & #ul-links {
-                height: 100%;
-                flex-direction: row;
-
-                & li {
-                    margin: auto 10px;
-                    height: 100%;
-                    display: flex;
-                    justify-content: center;
-                    align-items: center;
-                    position: relative;
-                    overflow: hidden;
-                    transition: 1s;
-                    z-index: 0;
-                    padding: 0 10px;
-
-                    &:hover::after {
-                        content: '';
-                        position: absolute;
-                        inset: 3px;
-                        background: #464553;
-                        transition: 0.5s;
-                    }
-
-                    &:hover::before {
-                        content: '';
-                        position: absolute;
-                        width: 10px;
-                        height: 500%;
-                        background: rgba(145, 145, 145, 0.65);
-                        transition: 1s;
-                        animation: animate 2s linear infinite;
-                        animation-delay: calc(0.33s * 0);
-                    }
-
-                    @keyframes animate {
-                        0% {
-                            transform: rotate(0deg);
-                        }
-                        100% {
-                            transform: rotate(360deg);
-                        }
-                    }
-                }
-
-                & a {
-                    font-size: 0.9rem;
-                    text-decoration: none;
-                    color: #fff;
-                    position: relative;
-                    z-index: 1;
-                    padding: 0 2px;
-                }
-            }
-        }
-    }
-
-    #ul-auth {
-
-        & .nav-item {
-
-            & a {
-                color: #ffffff;
-            }
-
-            & #navbarDropdown {
-                color: #ffffff;
-
-                & i {
-                    font-size: 1.2rem;
-                    color: #ffffff;
-                }
-            }
-
-            & .dropdown-menu {
-                & a {
-                    color: #000000;
-                }
-            }
+        & .bar {
+            background: linear-gradient(to top, #00ff92, #ffffff);
         }
     }
 }
 
 footer {
-    background-color: #464553;
+    background-color: $primary-color;
     display: flex;
     flex-direction: column;
 
@@ -207,6 +128,7 @@ footer {
 
 thead, tbody, tfoot, tr, td, th {
     border-width: unset;
+    font-size: 0.9rem;
 }
 
 thead, th {

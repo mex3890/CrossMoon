@@ -2,5 +2,7 @@
     "/js/app.js": "/js/app.js",
     "/css/table.css": "/css/table.css",
     "/css/app.css": "/css/app.css",
-    "/css/assignment.css": "/css/assignment.css"
+    "/css/sidebar.css": "/css/sidebar.css",
+    "/css/assignment.css": "/css/assignment.css",
+    "/css/header.css": "/css/header.css"
 }

@@ -11,6 +11,7 @@
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
+    <script src="{{asset('js/sidebar.js')}}"></script>
 
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
@@ -18,32 +19,26 @@
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
-    <link href="{{ asset('css/table.css') }}" rel="stylesheet">
-    <link href="{{ asset('css/assignment.css') }}" rel="stylesheet">
+    <link href="{{asset('css/sidebar.css')}}" rel="stylesheet">
+    <link href="{{asset('css/header.css')}}" rel="stylesheet">
 
     <!-- Icons -->
     <link href='https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css' rel='stylesheet'>
 </head>
 <body>
-    <div id="app">
-        <app-header
-        url-welcome="{{route('welcome')}}"
-        url-home="{{route('home')}}"
-        url-assignments="{{route('assignment.index')}}"
-        is-authenticated="{{auth()->check() ? : 0}}"
-        url-login="{{route('login')}}"
-        url-register="{{route('register')}}"
-        user-name="{{auth()->user()->name ?? 'User'}}"
-        url-logout="{{route('logout')}}"
-        csrf-token="{{csrf_token()}}"
-        src-logo="{{asset('img/logo.png')}}">
-        </app-header>
+<div id="app">
+    @component('components.header')
+    @endcomponent
+    <main id="main" style="
+        {{\Illuminate\Support\Facades\Auth::user() ? 'grid-template-areas: "sidebar main"; grid-template-columns: 200px 1fr;' : ''}}">
+        @if(\Illuminate\Support\Facades\Auth::user())
+            @component('components.sidebar')
+            @endcomponent
+        @endif
+        @yield('content')
+    </main>
 
-        <main class="py-4">
-            @yield('content')
-        </main>
-
-        <app-footer></app-footer>
-    </div>
+    <app-footer></app-footer>
+</div>
 </body>
 </html>

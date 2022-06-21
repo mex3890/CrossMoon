@@ -126,4 +126,9 @@ class UserController extends Controller
         $user->delete();
         return response()->json(['msg' => 'User deleted']);
     }
+
+    public function adminDashboard(): \Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View|\Illuminate\Contracts\Foundation\Application
+    {
+        return view('admin.index');
+    }
 }

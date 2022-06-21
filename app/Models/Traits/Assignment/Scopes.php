@@ -2,7 +2,7 @@
 
 namespace App\Models\Traits\Assignment;
 
-use Illuminate\Database\Query\Builder;
+use Illuminate\Database\Eloquent\Builder;
 
 trait Scopes
 {

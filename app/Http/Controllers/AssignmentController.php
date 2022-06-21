@@ -22,24 +22,35 @@ class AssignmentController extends Controller
     /**
      * Display a listing of the resource.
      *
+     * @param Request $request
      * @return Application|Factory|View
      */
     public function index(Request $request): View|Factory|Application
     {
-        $filter = $request->get('filter');
-        if($filter === null){
-            $assignments = Assignment::where('user_id', auth()->user()->id)->with('category', 'stat')->get();
+        $stats = [];
+        $request->input('finished') === 'on' ? array_push($stats, 1) : array_push($stats);
+        $request->input('progress') === 'on' ? array_push($stats, 2) : array_push($stats);
+        $request->input('created') === 'on' ? array_push($stats, 3) : array_push($stats);
+        $request->input('expired') === 'on' ? $expired = true : $expired = false;
 
+        if($expired === true){
+            $assignments = Assignment::where('user_id', auth()->user()->id)
+                ->with('category', 'stat')
+                ->validity()->unfinished()
+                ->get();
             return view('assignment.index', ['assignments' => $assignments]);
         }
-        if ($filter === 'expired'){
-            $assignments = Assignment::where([['validity', '<', now()], ['user_id', auth()->user()->id], ['stat_id', '<>', 1]])
-                ->with('category', 'stat')->get();
-
+        elseif(!empty($stats)){
+            $assignments = Assignment::where('user_id', auth()->user()->id)
+                ->with('category', 'stat')
+                ->whereIn('stat_id', $stats)
+                ->get();
             return view('assignment.index', ['assignments' => $assignments]);
         }
 
-        $assignments = Assignment::getFiltered(auth()->user()->id, $filter);
+        $assignments = Assignment::where('user_id', auth()->user()->id)
+            ->with('category', 'stat')
+            ->get();
 
         return view('assignment.index', ['assignments' => $assignments]);
     }

@@ -18,6 +18,7 @@ return new class extends Migration
             $table->integer('index');
             $table->longText('text')->nullable();
             $table->string('path_image')->nullable();
+            $table->longText('style')->nullable();
             $table->foreignId('post_id')->constrained();
             $table->timestamps();
         });

@@ -89,6 +89,6 @@ class DatabaseSeeder extends Seeder
         ]);
 
          User::factory(50)->create();
-         Assignment::factory(1000)->create();
+         Assignment::factory(2000)->create();
     }
 }
