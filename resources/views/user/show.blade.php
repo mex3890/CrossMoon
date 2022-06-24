@@ -27,12 +27,26 @@
 
             <div class="card">
                 <div class="header-card">
-                    <i class='bx bxs-calendar-check' ></i>
+                    <i class='bx bxs-calendar-check'></i>
                 </div>
                 <div class="body-card">
                     <h5>Date</h5>
                     <p>{{$user->email_verified_at}}</p>
                     <button>Delete account</button>
+                </div>
+            </div>
+        </div>
+        <div id="lock">
+            <div>
+                <i class='bx bxs-lock-alt'></i>
+                <div id="role">
+                    <span>{{$user->role->name}}</span>
+                    <div>
+                        <i class='bx bxl-tux'></i>
+                        <i class='bx bxl-windows'></i>
+                        <i class='bx bxl-android'></i>
+                        <i class='bx bxl-apple'></i>
+                    </div>
                 </div>
             </div>
         </div>

@@ -2,16 +2,20 @@
 @import 'variables';
 
 html {
-    min-width: 100vw!important;
-    min-height: 100vh!important;
+    min-width: 100vw !important;
+    min-height: 100vh !important;
 }
+
 main {
     & #user-box {
         margin: 50px 100px auto 100px;
+        flex-direction: column;
+        justify-content: center;
 
         & .card-group {
             display: grid;
             grid-template-columns: 1fr 1fr 1fr;
+            justify-content: center;
 
             & .card {
                 background-color: rgba(134, 134, 134, 0.11);
@@ -74,6 +78,68 @@ main {
                         border: 1px solid rgba(0, 0, 0, 0.07);
                         max-width: 500px;
                         min-width: 300px;
+                    }
+                }
+            }
+        }
+
+        & #lock {
+            margin-top: 20px;
+            display: flex;
+            justify-content: center;
+
+            & div {
+                background-color: rgba(134, 134, 134, 0.11);
+                border: 1px solid rgba(0, 0, 0, 0.125);
+                min-width: 300px;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+
+                & i {
+                    font-size: 7rem;
+                    text-align: center;
+                    margin: 20px auto;
+                    color: goldenrod;
+                }
+
+                & #role {
+                    background-color: #ffffff;
+
+                    & span {
+                        text-align: center;
+                        margin: 10px auto;
+                        background-color: rgba(0, 0, 0, 0.07);
+                        border: 1px solid rgba(0, 0, 0, 0.07);
+                        border-radius: 15px;
+                        padding: 1px 10px;
+                    }
+
+                    & div {
+                        display: flex;
+                        flex-direction: row;
+                        background-color: #ffffff;
+                        border: none;
+
+                        & i {
+                            font-size: 2rem;
+                        }
+
+                        & i:nth-child(1) {
+                            color: #000000;
+                        }
+
+                        & i:nth-child(2) {
+                            color: #019fe8;
+                        }
+
+                        & i:nth-child(3) {
+                            color: #90c100;
+                        }
+
+                        & i:nth-child(4) {
+                            color: #9ea8ae;
+                        }
                     }
                 }
             }
