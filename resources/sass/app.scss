@@ -7,6 +7,21 @@
 // Bootstrap
 @import '~bootstrap/scss/bootstrap';
 
+@media (max-width: 770px) {
+    main {
+        display: flex !important;
+        justify-content: center;
+        align-items: center;
+    }
+    #toggle {
+        display: flex !important;
+    }
+
+    #main #app #content-table {
+        display: none;
+    }
+}
+
 html, body {
     min-height: 100vh;
     margin: 0;
@@ -24,9 +39,106 @@ main {
 .dark {
     background-color: $dark-mode-color;
 
-    #home-table {
-        background-color: $second-color;
+    .finish {
+        background-color: $primary-color;
+        color: $action-color;
+    }
+    .created {
+        background-color: $primary-color;
+        color: $action-color;
+    }
+    .inprogress {
+        background-color: $primary-color;
+        color: $action-color;
+    }
+    .expired {
+        background-color: $primary-color;
+        color: $action-color;
+    }
+
+    #content {
+
+        & #box {
+
+            & .card {
+                box-shadow: 0 0 10px $text-color,
+                5px 5px 10px $text-color;
+                border-color: #2b2f39;
+
+                & .card-header {
+                    background-color: #2b2f39;
+
+                    &.card-expired {
+                        background-color: #2c313b;
+                        color: $action-color;
+                    }
+                }
+
+                & .card-body {
+                    background-color: $second-color;
+                }
+
+                & .card-footer {
+                    background-color: #2c313b;
+
+                    & a, & form {
+                        background-color: $primary-color;
+                        color: $action-color;
+                        border-color: $primary-color;
+
+                        & i {
+                            color: $action-color;
+                        }
+
+                        &:focus {
+                            border-color: $action-color;
+                            box-shadow: 0 0 0 0.25rem rgba(22, 209, 153, 0.50);
+                        }
+
+                        &:hover {
+                            & i {
+                                color: #ffffff;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+    #table, #content-table {
+        background-color: rgba(0, 0, 0, 0.03);
         color: $text-color;
+        box-shadow: 0 0 10px $action-color,
+        5px 5px 10px $action-color;
+
+        & .header-table {
+
+            & h4 {
+                color: $action-color;
+            }
+
+            & a {
+                background-color: $primary-color;
+                color: $action-color;
+            }
+
+            #input {
+                input {
+                    background-color: $primary-color;
+                    color: $action-color;
+                    border-color: $text-color;
+                }
+
+                button {
+                    background-color: $second-color;
+                    border-color: $text-color;
+
+                    & i {
+                        color: $action-color;
+                    }
+                }
+            }
+        }
 
         & table {
             color: $text-color;
@@ -49,6 +161,8 @@ main {
             background: linear-gradient(to top, #00ff92, #ffffff);
         }
     }
+
+
 }
 
 footer {
@@ -106,21 +220,20 @@ footer {
                 }
             }
         }
-
     }
-
-    & .copyright {
-        display: flex;
-        justify-content: center;
-        border-top: 2px solid rgba(145, 133, 133, 0.823);
-        margin: auto 30px;
-
-        & p {
-            color: #fff;
-        }
-    }
-
 }
+
+.copyright {
+    display: flex;
+    justify-content: center;
+    border-top: 2px solid rgba(145, 133, 133, 0.823);
+    margin: auto 30px;
+
+    & p {
+        color: #fff;
+    }
+}
+
 
 .table > :not(caption) > * > * {
     border-bottom-width: unset;

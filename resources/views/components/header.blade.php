@@ -1,13 +1,11 @@
 <nav id="nav" class="navbar navbar-expand-md navbar-light shadow-sm">
     <div class="header">
+        <button onclick="sidebar()" id="toggle" style="display:none;color:#fff;background: transparent;border: none;align-self: center">
+            <i class='bx bx-menu'></i>
+        </button>
         <a class="navbar-logo" href="{{ url('/') }}">
             <img src="{{asset('img/logo.png')}}" alt="@CrossMoon">
         </a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
-                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <!-- Left Side Of Navbar -->
             <ul id="ul-links" class="navbar-nav nav-links">
@@ -59,3 +57,9 @@
         </div>
     </div>
 </nav>
+
+<style>
+    .active{
+        display: flex!important;
+    }
+</style>

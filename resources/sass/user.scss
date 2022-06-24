@@ -1,0 +1,82 @@
+// Variables
+@import 'variables';
+
+html {
+    min-width: 100vw!important;
+    min-height: 100vh!important;
+}
+main {
+    & #user-box {
+        margin: 50px 100px auto 100px;
+
+        & .card-group {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+
+            & .card {
+                background-color: rgba(134, 134, 134, 0.11);
+
+                & .header-card {
+                    align-self: center;
+
+                    & i {
+                        margin: 20px 0;
+                        font-size: 5rem;
+                    }
+
+                    & img {
+                        margin: 20px 0;
+                        height: 80px;
+                    }
+                }
+
+                & .body-card {
+                    border-top: 1px solid rgba(0, 0, 0, 0.08);
+                    background-color: #ffffff;
+                    display: flex;
+                    justify-content: center;
+                    flex-direction: column;
+                    min-height: 140px;
+
+                    & h5, p {
+                        margin-top: 10px;
+                        text-align: center;
+                    }
+
+                    & p {
+                        color: $text-color;
+                    }
+
+                    & button {
+                        margin: auto 70px 20px;
+                        border-radius: 15px;
+                        background-color: rgba(0, 0, 0, 0.07);
+                        border-color: rgba(0, 0, 0, 0.07);
+                        white-space: nowrap;
+                    }
+                }
+            }
+        }
+
+        @media(max-width: 1190px) {
+            & {
+                margin: 50px 50px auto 50px;
+
+                & .card-group {
+                    grid-template-columns: 1fr;
+                    grid-gap: 20px;
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: center;
+                    align-items: center;
+
+                    & .card {
+                        border: 1px solid rgba(0, 0, 0, 0.07);
+                        max-width: 500px;
+                        min-width: 300px;
+                    }
+                }
+            }
+        }
+    }
+}

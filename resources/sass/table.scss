@@ -44,6 +44,12 @@
     box-shadow: 0 0 10px #ccc,
                 5px 5px 10px #ccc;
 
+    @media(max-width:550px) {
+        & {
+            margin: 0;
+        }
+    }
+
     & .header-table {
         display: flex;
         justify-content: space-between;

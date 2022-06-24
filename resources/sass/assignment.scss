@@ -1,26 +1,130 @@
 // Variables
 @import 'variables';
 
+.finish {
+    background-color: #c7f5d9;
+    padding: 2px 8px;
+    color: #00b66c;
+    border-radius: 12px;
+}
+
+.inprogress {
+    background-color: #ffebc2;
+    padding: 2px 8px;
+    color: #ff9300;
+    border-radius: 12px;
+}
+
+.created {
+    background-color: #cfe0fc;
+    padding: 2px 8px;
+    color: #5e81ff;
+    border-radius: 12px;
+}
+
+.expired {
+    background-color: #ffc1c1;
+    padding: 2px 8px;
+    color: #ff0000;
+    border-radius: 12px;
+}
+
 main {
-    padding-top: 1.5rem;
-    padding-bottom: 1.5rem;
-}
+    & #content {
+        & #box {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr 1fr;
+            grid-gap: 30px;
+            margin: 50px;
 
-.form-assignment {
-    background-color: #ffffff;
-    border-radius: 5px;
-    border: 1px solid rgba(192, 192, 192, 0.3);
-    box-shadow: 0 0 10px #ccc, 5px 5px 10px #ccc;
-    padding: 20px 40px;
-    margin: auto 15vw;
-}
+            & .card {
+                box-shadow: 0 0 10px #ccc,
+                5px 5px 10px #ccc;
 
-.content-buttons {
-    margin-top: 20px;
-    display: flex;
-    justify-content: flex-end;
+                & .card-header {
+                    background-color: $card-color-1;
 
-    & a, button {
-        margin: 0 10px;
+                    &.card-expired {
+                        background-color: $card-color-2;
+                    }
+                }
+
+                & .card-footer {
+                    display: flex;
+                    justify-content: space-around;
+
+                    & form {
+                        padding: 0;
+
+
+                        & button {
+                            background: transparent;
+                            border: none;
+                            color: #fff;
+                            padding: 0;
+                            margin: 0;
+                            height: 34px;
+                            width: 45px;
+                        }
+                    }
+
+                    & a {
+                        text-decoration: none;
+                        color: #ffffff;
+                        height: 34px;
+                        width: 45px;
+                        border-radius: 4px;
+                    }
+
+                    & a, & form {
+                        background-color: $text-color;
+                        border-color: $text-color;
+                        margin: 0;
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+
+                        &:hover {
+                            color: $action-color;
+
+                            & button i {
+                                color: $action-color;
+                            }
+
+                            & i {
+                                animation-name: animate;
+                                animation-duration: 0.5s;
+
+                                @keyframes animate {
+                                    0% {
+                                        transform: rotate(0deg);
+                                    }
+                                    100% {
+                                        transform: rotate(90deg);
+                                    }
+                                }
+                            }
+                        }
+
+                        & i {
+                            font-size: 1.2rem;
+                        }
+                    }
+                }
+            }
+
+            @media(max-width: 1800px) {
+                grid-template-columns: 1fr 1fr 1fr;
+            }
+
+            @media(max-width: 1400px) {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            @media(max-width: 950px) {
+                grid-template-columns: 1fr;
+            }
+        }
     }
+
 }

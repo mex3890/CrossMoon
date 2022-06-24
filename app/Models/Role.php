@@ -9,4 +9,6 @@ use Illuminate\Database\Eloquent\Model;
 class Role extends Model
 {
     use HasFactory, Relationships;
+
+    protected $guarded = ['id'];
 }

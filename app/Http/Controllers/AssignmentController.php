@@ -36,20 +36,20 @@ class AssignmentController extends Controller
         if($expired === true){
             $assignments = Assignment::where('user_id', auth()->user()->id)
                 ->with('category', 'stat')
-                ->validity()->unfinished()
+                ->validity()->unfinished()->orderBy('id', 'desc')
                 ->get();
             return view('assignment.index', ['assignments' => $assignments]);
         }
         elseif(!empty($stats)){
             $assignments = Assignment::where('user_id', auth()->user()->id)
                 ->with('category', 'stat')
-                ->whereIn('stat_id', $stats)
+                ->whereIn('stat_id', $stats)->orderBy('id', 'desc')
                 ->get();
             return view('assignment.index', ['assignments' => $assignments]);
         }
 
         $assignments = Assignment::where('user_id', auth()->user()->id)
-            ->with('category', 'stat')
+            ->with('category', 'stat')->orderBy('id', 'desc')
             ->get();
 
         return view('assignment.index', ['assignments' => $assignments]);

@@ -3,6 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Models\User;
+use Illuminate\Contracts\Foundation\Application;
+use Illuminate\Contracts\View\Factory;
+use Illuminate\Contracts\View\View;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
@@ -59,12 +62,14 @@ class UserController extends Controller
      * Display the specified resource.
      *
      * @param int $id
-     * @return JsonResponse|Response|User
+     * @return Application|Factory|View
      */
-    public function show(int $id): Response|JsonResponse|User
+    public function show(int $id): Application|Factory|View
     {
-        $user = $this->user->find($id);
-        return $user ? $user : response()->json(['error' => 'User not found'], 404);
+        $user = User::find($id);
+        $user = $user->load('role');
+
+        return view('user.show', ['user' => $user]);
     }
 
 //    /**
@@ -127,7 +132,7 @@ class UserController extends Controller
         return response()->json(['msg' => 'User deleted']);
     }
 
-    public function adminDashboard(): \Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View|\Illuminate\Contracts\Foundation\Application
+    public function adminDashboard(): Factory|View|Application
     {
         return view('admin.index');
     }
