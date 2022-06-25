@@ -27,7 +27,7 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 
 Route::resource('assignment', AssignmentController::class)->middleware('auth');
 Route::resource('post', PostController::class);
-Route::resource('profile', UserController::class);
+Route::resource('user', UserController::class);
 
 Route::prefix('admin')->group(function (){
     Route::get('/dashboard', [App\Http\Controllers\UserController::class, 'adminDashboard'])

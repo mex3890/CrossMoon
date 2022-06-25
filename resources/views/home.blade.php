@@ -98,6 +98,18 @@
         background: linear-gradient(to top, #21262f, #67708a);
     }
 
+    @media(max-width: 1250px){
+        .bar {
+            margin: 50px 30px 0 30px;
+        }
+    }
+
+    @media(max-width: 1025px){
+        .bar {
+            margin: 50px 15px 0 15px;
+        }
+    }
+
     .new-container div span {
         text-align: center;
         font-weight: bold;

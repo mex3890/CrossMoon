@@ -9,6 +9,8 @@ use Illuminate\Contracts\View\View;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
+use Illuminate\Support\Facades\Auth;
+use Symfony\Component\HttpFoundation\Response as ResponseAlias;
 
 class UserController extends Controller
 {
@@ -62,10 +64,15 @@ class UserController extends Controller
      * Display the specified resource.
      *
      * @param int $id
-     * @return Application|Factory|View
+     * @return Application|Factory|View|int
      */
-    public function show(int $id): Application|Factory|View
+    public function show(int $id): View|Factory|int|Application
     {
+        if(Auth::user()->id !== $id) {
+            $user = Auth::user();
+            $user = $user->load('role');
+            return view('user.show', ['user' => $user]);
+        }
         $user = User::find($id);
         $user = $user->load('role');
 

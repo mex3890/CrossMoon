@@ -8,7 +8,7 @@
 
                 <div class="notify-box"><span>{{\App\Models\Assignment::getCountExpired()}}</span></div>
             </a>
-            <a class="item-dropdown" href="#">
+            <a class="item-dropdown" href="{{route('home')}}">
                 <span>Analytics</span>
             </a>
             <a class="item-dropdown" href="#">
@@ -100,7 +100,7 @@
         <hr>
         <div class="title-cell">CONFIG</div>
         <div class="link-cell">
-            <a href="#">
+            <a href="{{route('user.show',['user'=>\Illuminate\Support\Facades\Auth::user()->id])}}">
                 <i class='bx bx-user'><span>Profile</span></i>
                 <i class='bx bx-chevron-right'></i>
             </a>

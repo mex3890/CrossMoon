@@ -30,7 +30,7 @@
                     <i class='bx bxs-calendar-check'></i>
                 </div>
                 <div class="body-card">
-                    <h5>Date</h5>
+                    <h5>Validated at</h5>
                     <p>{{$user->email_verified_at}}</p>
                     <button>Delete account</button>
                 </div>
@@ -42,10 +42,11 @@
                 <div id="role">
                     <span>{{$user->role->name}}</span>
                     <div>
-                        <i class='bx bxl-tux'></i>
-                        <i class='bx bxl-windows'></i>
-                        <i class='bx bxl-android'></i>
-                        <i class='bx bxl-apple'></i>
+                        <i class='bx bxl-php'></i>
+                        <i class='bx bxl-css3'></i>
+                        <i class='bx bxl-html5'></i>
+                        <i class='bx bxl-bootstrap'></i>
+                        <i class='bx bxl-nodejs'></i>
                     </div>
                 </div>
             </div>

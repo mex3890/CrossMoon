@@ -18,9 +18,11 @@
                         <p class="card-text">{{$assignment->name}}</p>
                     </div>
                     <div class="card-footer text-muted">
-                        <a href="{{route('assignment.show', ['assignment' => $assignment])}}"><i class='bx bxs-show'></i></a>
+                        <a href="{{route('assignment.show', ['assignment' => $assignment])}}"><i
+                                class='bx bxs-show'></i></a>
                         <a href="#" class="btn btn-primary"><i class='bx bxs-edit'></i></a>
-                        <form class="btn btn-primary" method="POST" action="{{route('assignment.destroy', ['assignment' => $assignment])}}">
+                        <form class="btn btn-primary" method="POST"
+                              action="{{route('assignment.destroy', ['assignment' => $assignment])}}">
                             @method('DELETE')
                             @csrf
                             <button type="submit"><i class='bx bx-trash'></i></button>

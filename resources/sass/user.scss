@@ -59,6 +59,14 @@ main {
                         white-space: nowrap;
                     }
                 }
+
+                &:nth-child(3) {
+
+                    & button {
+                        background-color: rgba(255, 0, 0, 0.3);
+                        color: #ff0000;
+                    }
+                }
             }
         }
 
@@ -100,7 +108,7 @@ main {
                     font-size: 7rem;
                     text-align: center;
                     margin: 20px auto;
-                    color: goldenrod;
+                    color: rgba(255, 147, 0, 0.46);
                 }
 
                 & #role {
@@ -126,7 +134,7 @@ main {
                         }
 
                         & i:nth-child(1) {
-                            color: #000000;
+                            color: #7075aa;
                         }
 
                         & i:nth-child(2) {
@@ -134,12 +142,17 @@ main {
                         }
 
                         & i:nth-child(3) {
-                            color: #90c100;
+                            color: #ff6021;
                         }
 
                         & i:nth-child(4) {
-                            color: #9ea8ae;
+                            color: #6200ce;
                         }
+
+                        & i:nth-child(5) {
+                            color: #67b900;
+                        }
+
                     }
                 }
             }
