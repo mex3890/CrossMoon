@@ -42,5 +42,9 @@ trait Repository
             'total' => $total];
     }
 
+    public static function getCategoriesCont()
+    {
+
+    }
 
 }

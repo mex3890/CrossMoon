@@ -9,13 +9,13 @@
                 <div class="notify-box"><span>{{\App\Models\Assignment::getCountExpired()}}</span></div>
             </a>
             <a class="item-dropdown" href="{{route('home')}}">
-                <span>Analytics</span>
+                <span>Status Analytics</span>
             </a>
-            <a class="item-dropdown" href="#">
+            <a class="item-dropdown" href="{{route('home.category')}}">
+                <span>Category Analytics</span>
+            </a>
+            <a class="item-dropdown" href="{{route('assignment.index')}}">
                 <span>Assignments</span>
-            </a>
-            <a class="item-dropdown" href="#">
-                <span>Analytics</span>
             </a>
         </div>
         <hr>

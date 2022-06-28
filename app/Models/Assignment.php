@@ -7,6 +7,8 @@ use App\Models\Traits\Assignment\Repository;
 use App\Models\Traits\Assignment\Scopes;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 
 class Assignment extends Model
 {
@@ -75,5 +77,15 @@ class Assignment extends Model
     public static function isValidity(Assignment $assignment): bool
     {
         return $assignment->validity < now() && $assignment->stat->name !== 'Finished';
+    }
+
+    public static function calculateCategoriesCount(): \Illuminate\Support\Collection
+    {
+        return DB::table('assignments')
+            ->select('categories.name', DB::raw('count(assignments.category_id) as count'))
+            ->join('categories', 'assignments.category_id', '=', 'categories.id')
+            ->where('user_id', Auth::user()->id)
+            ->groupBy('assignments.category_id')
+            ->get();
     }
 }

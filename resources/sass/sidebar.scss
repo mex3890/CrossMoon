@@ -80,6 +80,10 @@ main {
                     display: flex;
                     justify-content: space-between;
 
+                    & i span{
+                        margin-left: 10px;
+                    }
+
                     & input {
                         background-color: $ternary-color;
 

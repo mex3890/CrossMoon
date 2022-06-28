@@ -6,6 +6,7 @@ use App\Models\Assignment;
 use App\Models\User;
 use Illuminate\Contracts\Support\Renderable;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class HomeController extends Controller
 {
@@ -27,5 +28,10 @@ class HomeController extends Controller
     public function index(): Renderable
     {
         return view('home', Assignment::getPercentages());
+    }
+
+    public function categoryIndex(): \Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View|\Illuminate\Contracts\Foundation\Application
+    {
+        return view('categoryHome', ['categories' => Assignment::calculateCategoriesCount(), 'total' => Assignment::where('user_id',Auth::user()->id)->count()]);
     }
 }
